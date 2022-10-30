@@ -1,30 +1,30 @@
 import create from 'zustand'
+import { persist } from 'zustand/middleware'
 
-export interface UserState {
-  isLoggedIn: boolean
-  user: Object | null
-  logIn: (isLoggedIn: boolean, user: Object) => void
-  logOut: () => void
-}
+import { UserState } from '../types'
 
-export const useUserStore = create<UserState>((set) => ({
-  // Initial state
-  user: {},
-  isLoggedIn: false,
-  // Mutation
-  logIn: (isLoggedIn: boolean, user: Object) => {
-    localStorage.setItem('isLoggedIn', JSON.stringify(isLoggedIn))
-    localStorage.setItem('user', JSON.stringify(user))
-    set(() => ({
-      user,
-      isLoggedIn
-    }))
-  },
-  logOut: () => {
-    localStorage.clear()
-    set(() => ({
+export const useUserStore = create(
+  persist<UserState>(
+    (set) => ({
+      // Initial state
+      user: {},
       isLoggedIn: false,
-      user: null
-    }))
-  }
-}))
+      token: null,
+      // Mutation
+      logIn: async (isLoggedIn: boolean, user: Object, token: string) => {
+        set(() => ({
+          user,
+          isLoggedIn,
+          token
+        }))
+      },
+      logOut: () => {
+        set(() => ({
+          isLoggedIn: false,
+          user: null
+        }))
+      }
+    }),
+    { name: 'user' }
+  )
+)
