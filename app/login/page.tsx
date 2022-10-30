@@ -14,7 +14,7 @@ export const LoginPage = () => {
   const { logIn } = useUserStore()
   const router = useRouter()
 
-  const { isLoading } = useQuery(
+  const { isSuccess, isLoading, isError } = useQuery(
     ['userData'],
     async () => {
       const response = await fetch(`${BACKEND_URI as string}/user/${code}`)
@@ -38,11 +38,17 @@ export const LoginPage = () => {
     return <button className="btn btn-ghost disabled loading">Loading</button>
   }
 
-  return (
-    <div>
-      <h3>You are logged in</h3>
-    </div>
-  )
+  if (isError) {
+    return null
+  }
+
+  if (isSuccess) {
+    return (
+      <div>
+        <h3>You are logged in</h3>
+      </div>
+    )
+  }
 }
 
 export default LoginPage
