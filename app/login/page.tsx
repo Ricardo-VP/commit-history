@@ -14,24 +14,29 @@ export const LoginPage = () => {
   const { logIn } = useUserStore()
   const router = useRouter()
 
-  useQuery(
+  const { isLoading } = useQuery(
     ['userData'],
     async () => {
-      return await fetch(`${BACKEND_URI as string}/user/${code}`).then(
-        async (res) => await res.json()
-      )
+      const response = await fetch(`${BACKEND_URI as string}/user/${code}`)
+      if (!response.ok) {
+        throw new Error('Error fetching user data')
+      }
+      return await response.json()
     },
     {
       onSuccess: (user) => {
-        if (!user.data) {
-          router.push('/')
-        } else {
-          logIn(true, user.data)
-        }
+        logIn(true, user.data)
+      },
+      onError: () => {
+        router.push('/')
       },
       staleTime: Infinity
     }
   )
+
+  if (isLoading) {
+    return <button className="btn btn-ghost disabled loading">Loading</button>
+  }
 
   return (
     <div>
