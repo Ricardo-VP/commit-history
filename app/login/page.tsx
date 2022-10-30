@@ -24,8 +24,9 @@ export const LoginPage = () => {
       return await response.json()
     },
     {
-      onSuccess: (user) => {
-        logIn(true, user.data)
+      onSuccess: async (user) => {
+        logIn(true, user.data, user.token)
+        router.push('/dashboard')
       },
       onError: () => {
         router.push('/')
@@ -45,7 +46,7 @@ export const LoginPage = () => {
   if (isSuccess) {
     return (
       <div>
-        <h3>You are logged in</h3>
+        <h3>Redirecting to the dashboard...</h3>
       </div>
     )
   }

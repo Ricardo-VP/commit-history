@@ -10,7 +10,7 @@ export const Home = () => {
   }
 
   return (
-    <main>
+    <div>
       <h1 className="text-5xl font-bold">Commit History App</h1>
       <p className="py-6">
         Provident cupiditate voluptatem et in. Quaerat fugiat ut assumenda
@@ -20,7 +20,7 @@ export const Home = () => {
       <button onClick={handleLogin} className="btn btn-primary">
         Login
       </button>
-    </main>
+    </div>
   )
 }
 

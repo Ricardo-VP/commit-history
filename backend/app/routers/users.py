@@ -25,7 +25,8 @@ async def get_user(code):
 
     return {
         "status": "success",
-        "data": user_data
+        "data": user_data,
+        "token": access_token
     }
 
 
