@@ -2,7 +2,6 @@
 import './globals.css'
 import { useEffect } from 'react'
 import { useRouter } from 'next/navigation'
-import Head from 'next/head'
 
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
 import { useUserStore } from '../store/user'
@@ -25,10 +24,10 @@ export default function RootLayout ({
 
   return (
     <html lang="en">
-      <Head>
+      <head>
         <title>Commit History - App</title>
         <link rel="icon" href="/favicon.ico" />
-      </Head>
+      </head>
       <body>
         <QueryClientProvider client={queryClient}>
           <div className="hero min-h-screen bg-base-200">

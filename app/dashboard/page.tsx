@@ -11,7 +11,7 @@ const DashboardPage = () => {
 
   return isLoggedIn
     ? (
-    <div className="space-y-3">
+    <div className="w-96 bg-base-100 shadow-xl items-center p-5 space-y-3">
       <UserCard
         avatarUrl={user?.avatar_url as string}
         bio={user?.bio as string}
@@ -28,7 +28,9 @@ const DashboardPage = () => {
       </button>
     </div>
       )
-    : null
+    : (
+    <button className="btn btn-ghost disabled loading">Loading</button>
+      )
 }
 
 export default DashboardPage
