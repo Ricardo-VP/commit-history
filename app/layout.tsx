@@ -18,7 +18,11 @@ export default function RootLayout ({
       </head>
       <body>
         <QueryClientProvider client={queryClient}>
-          {children}
+          <div className="hero min-h-screen bg-base-200">
+            <div className="hero-content text-center">
+              <div className="max-w-md">{children}</div>
+            </div>
+          </div>
         </QueryClientProvider>
       </body>
     </html>
