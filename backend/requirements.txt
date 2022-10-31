@@ -1,4 +1,7 @@
 fastapi===0.85.1
 uvicorn==0.17.6
-starlette==0.19.1
+starlette==0.20.4
 pydantic==1.10.2
+mangum==0.15.1
+requests==2.28.1
+python-dotenv==0.21.0

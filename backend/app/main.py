@@ -1,6 +1,8 @@
 from fastapi import FastAPI
 from starlette.middleware.cors import CORSMiddleware
 
+from mangum import Mangum
+
 
 from .routers import users, repositories
 
@@ -31,3 +33,5 @@ app.include_router(
     prefix="/repositories",
     tags=['repositories']
 )
+
+handler = Mangum(app)
