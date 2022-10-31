@@ -7,7 +7,7 @@ import { useUserStore } from '../../store/user'
 
 const { BACKEND_URI } = settings
 
-export const LoginPage = () => {
+const LoginPage = () => {
   const searchParams = useSearchParams()
   const code = searchParams.get('code') ?? ''
 

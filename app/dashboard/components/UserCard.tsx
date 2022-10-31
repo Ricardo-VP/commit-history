@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types'
 
-export const UserCard = ({
+const UserCard = ({
   avatarUrl,
   name,
   bio

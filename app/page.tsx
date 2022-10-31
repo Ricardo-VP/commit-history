@@ -2,7 +2,7 @@
 
 import { settings } from '../config/env'
 
-export const Home = () => {
+const Home = () => {
   const { CLIENT_ID, REDIRECT_URI } = settings
 
   const handleLogin = () => {

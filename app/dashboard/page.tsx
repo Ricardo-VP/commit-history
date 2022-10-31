@@ -5,7 +5,7 @@ import { useQuery } from '@tanstack/react-query'
 import { settings } from '../../config/env'
 import { useUserStore } from '../../store/user'
 
-import { UserCard } from './components/UserCard'
+import UserCard from './components/UserCard'
 import { useRepoStore } from '../../store/repositories'
 import { RepositoriesCard } from './components/RepositoriesCard'
 
