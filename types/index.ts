@@ -13,6 +13,11 @@ export interface UserState {
   logOut: () => void
 }
 
+export interface RepoState {
+  repositories: any[]
+  save: (repositories: any[]) => void
+}
+
 interface User {
   [key: string]: any
 }
