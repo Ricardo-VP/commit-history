@@ -1,5 +1,17 @@
 ## Commit History App
 
+### Test the app
+
+https://commit-history-ricardovaca.vercel.app/
+
+### Deployment
+- Frontend
+  - Vercel
+- Backend
+  - AWS Services: Lambda, API Gateway, ECR
+  - Mangum
+  - Docker
+
 ### Technologies
 
 - Frontend
