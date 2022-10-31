@@ -13,9 +13,15 @@ export const Home = () => {
     <div>
       <h1 className="text-5xl font-bold">Commit History App</h1>
       <p className="py-6">
-        Provident cupiditate voluptatem et in. Quaerat fugiat ut assumenda
-        excepturi exercitationem quasi. In deleniti eaque aut repudiandae et a
-        id nisi.
+        The easiest way to see the commit history of your repositories. Created
+        by{' '}
+        <a
+          className="text-primary"
+          href="https://github.com/Ricardo-VP"
+          target="blank"
+        >
+          Ricardo Vaca
+        </a>
       </p>
       <button onClick={handleLogin} className="btn btn-primary">
         Login
